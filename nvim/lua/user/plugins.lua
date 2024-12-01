@@ -1,4 +1,5 @@
--- Plugin Management using Packer
+-- lua/user/plugins.lua
+
 return require('packer').startup(function(use)
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
@@ -87,6 +88,20 @@ return require('packer').startup(function(use)
     'folke/twilight.nvim',
     config = function()
       require('twilight').setup {}
+    end
+  }
+
+  -- Add vim-dadbod
+  use {
+    'tpope/vim-dadbod'
+  }
+
+  -- Add vim-dadbod-ui
+  use {
+    'kristijanhusak/vim-dadbod-ui',
+    requires = 'tpope/vim-dadbod',
+    config = function()
+      vim.g.db_ui_save_location = '~/.config/nvim/db_ui' -- Optional: Set UI save location
     end
   }
 
