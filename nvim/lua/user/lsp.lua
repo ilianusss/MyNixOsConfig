@@ -9,7 +9,8 @@ require('mason-lspconfig').setup {
     'pyright',       -- Python
     'ts_ls',         -- JavaScript/TypeScript (using ts_ls instead of tsserver)
     'jdtls',         -- Java
-    'sqls',          -- SQL
+    --'sqls',          -- SQL
+    'sqlls',          -- SQL
     'gopls',         -- Go
     -- 'dartls' is handled by flutter-tools
   },
@@ -51,7 +52,8 @@ local servers = {
   'pyright',      -- Python
   'ts_ls',        -- JavaScript/TypeScript (using ts_ls instead of tsserver)
   'jdtls',        -- Java
-  'sqls',         -- SQL
+  --'sqls',         -- SQL
+  'sqlls',         -- SQL
   'gopls',        -- Go
 }
 
@@ -71,18 +73,18 @@ require('rust-tools').setup {
 }
 
 -- Flutter/Dart configuration using flutter-tools.nvim
-require('flutter-tools').setup {
-  lsp = {
-    on_attach = on_attach,
-    capabilities = capabilities,
-    settings = {
-      dart = {
-        completeFunctionCalls = true,
-        showTodos = true,
-      },
-    },
-  },
-}
+--require('flutter-tools').setup {
+--  lsp = {
+--    on_attach = on_attach,
+--    capabilities = capabilities,
+--    settings = {
+--      dart = {
+--        completeFunctionCalls = true,
+--        showTodos = true,
+--      },
+--    },
+--  },
+--}
 
 -- Fidget (LSP status)
 require('fidget').setup{}
