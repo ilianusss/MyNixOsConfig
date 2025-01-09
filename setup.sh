@@ -27,6 +27,21 @@ install_package "wget" "wget"
 install_package "fontconfig" "fc-cache"
 install_package "fonts.pt-mono" "fc-list"
 
+# Function to install yazi
+install_yazi() {
+    if ! command -v yazi &> /dev/null; then
+        echo "Installing yazi from GitHub releases..."
+        LATEST_YAZI_RELEASE=$(curl -s https://api.github.com/repos/sxyazi/yazi/releases/latest | grep "browser_download_url.*linux" | cut -d '"' -f 4)
+        wget "$LATEST_YAZI_RELEASE" -O /tmp/yazi.tar.gz
+        tar -xzf /tmp/yazi.tar.gz -C /tmp
+        sudo mv /tmp/yazi /usr/local/bin/
+        rm /tmp/yazi.tar.gz
+        echo "Yazi installed successfully."
+    else
+        echo "Yazi is already installed."
+    fi
+}
+
 # Set up Kitty configuration
 setup_kitty_config() {
     KITTY_CONFIG_DIR="$HOME/.config/kitty"
@@ -122,6 +137,7 @@ install_neovim_plugins() {
 # Execute setup functions
 setup_kitty_config
 setup_neovim_config
+install_yazi
 install_neovim_plugins
 
 echo "All configurations have been set up successfully at $(date)."
