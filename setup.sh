@@ -27,15 +27,11 @@ install_package "wget" "wget"
 install_package "fontconfig" "fc-cache"
 install_package "fonts.pt-mono" "fc-list"
 
-# Function to install yazi
+# Function to install yazi using Nix
 install_yazi() {
     if ! command -v yazi &> /dev/null; then
-        echo "Installing yazi from GitHub releases..."
-        LATEST_YAZI_RELEASE=$(curl -s https://api.github.com/repos/sxyazi/yazi/releases/latest | grep "browser_download_url.*linux" | cut -d '"' -f 4)
-        wget "$LATEST_YAZI_RELEASE" -O /tmp/yazi.tar.gz
-        tar -xzf /tmp/yazi.tar.gz -C /tmp
-        sudo mv /tmp/yazi /usr/local/bin/
-        rm /tmp/yazi.tar.gz
+        echo "Installing yazi from Nix profile..."
+        nix profile install github:sxyazi/yazi
         echo "Yazi installed successfully."
     else
         echo "Yazi is already installed."
