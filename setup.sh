@@ -133,7 +133,8 @@ install_neovim_plugins() {
 # Execute setup functions
 setup_kitty_config
 setup_neovim_config
-install_yazi
+# IL FAIT DES BETISES
+#install_yazi
 install_neovim_plugins
 
 echo "All configurations have been set up successfully at $(date)."
