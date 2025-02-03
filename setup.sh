@@ -20,12 +20,13 @@ install_package() {
     fi
 }
 
-# Install necessary packages: Kitty, Neovim, wget, fontconfig, PT Mono font
+# Install necessary packages: Kitty, Neovim, wget, fontconfig, PT Mono font, and rofi
 install_package "kitty" "kitty"
 install_package "neovim" "nvim"
 install_package "wget" "wget"
 install_package "fontconfig" "fc-cache"
 install_package "fonts.pt-mono" "fc-list"
+install_package "rofi" "rofi"
 
 # Function to install yazi using Nix
 install_yazi() {
