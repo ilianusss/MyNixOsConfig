@@ -39,6 +39,21 @@ install_yazi() {
     fi
 }
 
+# Set up Rofi config
+setup_rofi_config() {
+    ROFI_CONFIG_DIR="$HOME/.config/rofi"
+    mkdir -p "$ROFI_CONFIG_DIR"
+
+    # Write config.rosi
+    cat > "$ROFI_CONFIG_DIR/config.rasi" << 'EOF'
+configuration {
+  modes: [ combi ];
+  combi-modes: [ window, drun, run ];
+}
+
+@theme "gruvbox-light"
+EOF
+
 # Set up Kitty configuration
 setup_kitty_config() {
     KITTY_CONFIG_DIR="$HOME/.config/kitty"
@@ -95,6 +110,10 @@ bold_italic_font auto
 font_size 15.0
 # END_KITTY_FONTS
 
+hide_window_decorations yes
+#window_border_width 2
+#window_border_color "#ffffff"
+
 # Additional configurations can be added here
 EOF
 
@@ -132,9 +151,10 @@ install_neovim_plugins() {
 }
 
 # Execute setup functions
+setup_rofi_config()
 setup_kitty_config
 setup_neovim_config
-# IL FAIT DES BETISES
+# Des pb avec Yazi
 #install_yazi
 install_neovim_plugins
 
