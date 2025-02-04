@@ -12,7 +12,9 @@ if [ ! -f "$DEST_SETUP" ]; then
     cp "$SOURCE_SETUP" "$DEST_SETUP"
     echo "Copied setup.sh to $DEST_SETUP"
 else
-    echo "setup.sh already exists at $DEST_SETUP, skipping copy."
+    rm "$DEST_SETUP"
+    cp "$SOURCE_SETUP" "$DEST_SETUP"
+    echo "setup.sh already exists at $DEST_SETUP, but deleted it"
 fi
 
 # Ensure setup.sh is executable
