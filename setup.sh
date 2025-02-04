@@ -27,17 +27,7 @@ install_package "wget" "wget"
 install_package "fontconfig" "fc-cache"
 install_package "fonts.pt-mono" "fc-list"
 install_package "rofi" "rofi"
-
-# Function to install yazi using Nix
-install_yazi() {
-    if ! command -v yazi &> /dev/null; then
-        echo "Installing yazi from Nix profile..."
-        nix profile install github:sxyazi/yazi
-        echo "Yazi installed successfully."
-    else
-        echo "Yazi is already installed."
-    fi
-}
+install_package "yazi" "yazi"
 
 # Set up Rofi config
 setup_rofi_config() {
@@ -154,8 +144,6 @@ install_neovim_plugins() {
 setup_rofi_config()
 setup_kitty_config
 setup_neovim_config
-# Des pb avec Yazi
-#install_yazi
 install_neovim_plugins
 
 echo "All configurations have been set up successfully at $(date)."
