@@ -11,7 +11,7 @@ require('mason-lspconfig').setup {
     'jdtls',         -- Java
     --'sqls',          -- SQL
     'sqlls',          -- SQL
-    'gopls',         -- Go
+    --'gopls',         -- Go
     -- 'dartls' is handled by flutter-tools
   },
 }
@@ -54,7 +54,7 @@ local servers = {
   'jdtls',        -- Java
   --'sqls',         -- SQL
   'sqlls',         -- SQL
-  'gopls',        -- Go
+  --'gopls',        -- Go
 }
 
 for _, server in ipairs(servers) do

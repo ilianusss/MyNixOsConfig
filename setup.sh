@@ -43,6 +43,7 @@ configuration {
 
 @theme "gruvbox-light"
 EOF
+}
 
 # Set up Kitty configuration
 setup_kitty_config() {
@@ -141,7 +142,7 @@ install_neovim_plugins() {
 }
 
 # Execute setup functions
-setup_rofi_config()
+setup_rofi_config
 setup_kitty_config
 setup_neovim_config
 install_neovim_plugins
